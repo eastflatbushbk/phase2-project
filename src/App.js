@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
    const [tasks , setTasks] = useState([])
-   
+
+   useEffect(()=>{
+    fetch(" http://localhost:4001/tasks")
+    .then((resp)=>resp.json())
+    .then((tasks)=> setTasks(tasks))
+  },[])
+
   return (
     <div className="App">
       <header className="App-header">
