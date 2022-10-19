@@ -11,7 +11,7 @@ function App() {
    const [trashTasks , setTrashTasks] = useState([])
 
    useEffect(()=>{
-    fetch(" http://localhost:4001/tasks")
+    fetch(" http://localhost:3000/tasks")
     .then((resp)=>resp.json())
     .then((tasks)=> setTasks(tasks))
   },[])

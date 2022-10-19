@@ -4,7 +4,7 @@ function TaskCard ({tasks, onTaskClick}){
     const [complete , setComplete] = useState(true)
 
     function handleClick(){
-        fetch(`http://localhost:4001/tasks/${tasks.id}`,{
+        fetch(`http://localhost:3000/tasks/${tasks.id}`,{
           method: "DELETE" , 
         })
          .then((resp) => resp.json())
