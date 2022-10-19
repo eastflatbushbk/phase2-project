@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Header from './Header';
 import NavBar from './NavBar';
 import TaskPage from './TaskPage';
+import NewTaskForm from './NewTaskForm';
 
 function App() {
    const [tasks , setTasks] = useState([])
