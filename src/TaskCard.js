@@ -20,3 +20,5 @@ function TaskCard (){
     </li>
     )
 }
+
+export default TaskCard
