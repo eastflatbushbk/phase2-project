@@ -1,6 +1,6 @@
 import React from "react";
 
-function TaskCard (){
+function TaskCard ({tasks, onTaskClick}){
     const [complete , setComplete] = useState(true)
 
     function handleBtn (){

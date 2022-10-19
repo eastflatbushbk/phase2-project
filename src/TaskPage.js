@@ -1,7 +1,7 @@
 import React from "react";
 import TaskList from "./TaskList";
 
-function TaskPage (){
+function TaskPage ({tasks, onMoveTask}){
 
     return(
         <main>

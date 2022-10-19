@@ -1,6 +1,6 @@
 
 
-function NewTaskForm (){
+function NewTaskForm ({onAddTask}){
 
     return(
         <div className="new-plant-form">

@@ -1,7 +1,7 @@
 import React from "react";
 import TaskCard from "./TaskCard";
 
-function DoneTasks(){
+function DoneTasks({tasks , onRemoveTask }){
     const tasksToBeDeletedList = tasks.map((item) => (
         <TaskCard key={item.id} tasks={item} onTaskClick={onRemoveTask} />
       ));
