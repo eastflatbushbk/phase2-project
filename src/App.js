@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
+import Header from './Header';
+import NavBar from './NavBar';
+import TaskPage from './TaskPage';
 
 function App() {
    const [tasks , setTasks] = useState([])
