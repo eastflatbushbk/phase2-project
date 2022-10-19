@@ -1,7 +1,32 @@
 
 
 function NewTaskForm ({onAddTask}){
-
+    const [formData, setFormData] = useState(defaultData)
+    
+    function handleChange(event){
+        //setFormData(event.target.value)
+        setFormData({
+          ...formData, [event.target.name]:event.target.value,
+        })
+    }
+        function handleSubmit(event){
+            event.preventDefault()
+            const createTask = {
+             task: formData.task,
+             marked: formData.marked
+            }
+            fetch("http://localhost:4001/tasks",{
+             method:"POST",
+             headers:{
+               "Content-Type" : "application/json",
+             },
+             body: JSON.stringify(createTask),
+            })
+            .then((resp)=> resp.json())
+            .then((newTask)=> onAddTask(newTask));
+       
+            setFormData(defaultData)
+     }
     return(
         <div className="new-plant-form">
         <h2>New Task</h2>
