@@ -5,6 +5,7 @@ import Header from './Header';
 import NavBar from './NavBar';
 import TaskPage from './TaskPage';
 import NewTaskForm from './NewTaskForm';
+import DoneTasks from './DoneTasks';
 
 function App() {
    const [tasks , setTasks] = useState([])
