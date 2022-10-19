@@ -1,4 +1,9 @@
+import { useState } from "react"
 
+const defaultData = {
+    task: "",
+    marked: "",
+    }
 
 function NewTaskForm ({onAddTask}){
     const [formData, setFormData] = useState(defaultData)
