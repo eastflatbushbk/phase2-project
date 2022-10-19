@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function TaskCard ({tasks, onTaskClick}){
     const [complete , setComplete] = useState(true)
+
+    function handleClick(){
+        fetch(`http://localhost:4001/tasks/${tasks.id}`,{
+          method: "DELETE" , 
+        })
+         .then((resp) => resp.json())
+         .then(()=> onTaskClick(tasks))
+     }
 
     function handleBtn (){
         setComplete((complete)=>!complete)
