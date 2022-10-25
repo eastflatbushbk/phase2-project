@@ -12,16 +12,9 @@ function TaskCard ({tasks, onTaskClick , onCompleteClick }){
          .then((resp) => resp.json())
          .then(()=> onTaskClick(tasks))
      }
-    //  function handleSetTrue (){
-    //   setButton(true)
-    //   handlePatch
-    // }
-    //  function handleSetFalse (){
-    //   setButton(false)
-    //    patchData
-    // }
+    
     function handleBtn (){
-           //  setShowComplete((showComplete)=>!showComplete)
+           
         console.log(button)
         fetch(`http://localhost:3000/tasks/${tasks.id}`, {
   method: 'PATCH',
