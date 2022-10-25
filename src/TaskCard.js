@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Card } from "semantic-ui-react";
+import { Button, Card ,Grid } from "semantic-ui-react";
 
 function TaskCard ({tasks, onTaskClick , onCompleteClick }){
     const [completeFalse , setCompleteFalse] = useState(tasks.complete)
@@ -43,7 +43,8 @@ function TaskCard ({tasks, onTaskClick , onCompleteClick }){
       }
 
     return(
-      
+      <Grid columns={4} divided>
+         <Grid.Row>
         <Card>
         <Card.Content>
           
@@ -67,7 +68,8 @@ function TaskCard ({tasks, onTaskClick , onCompleteClick }){
           </div>
         </Card.Content>
       </Card>
-      
+      </Grid.Row>
+      </Grid>
     )
 }
 

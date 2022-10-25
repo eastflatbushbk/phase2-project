@@ -7,8 +7,8 @@ function TaskList ({tasks, onMoveTask,onSetTrue}){
          onTaskClick ={onMoveTask} onCompleteClick ={onSetTrue}  />
     ))
     return(
-        <div>
-      <ul className="cards">
+        <div >
+      <ul >
       {displayCards}
       </ul>
     </div>

@@ -27,3 +27,14 @@ code {
 .new-task-form button {
   width: 150px;
 }
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 20px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 25px;}
+
