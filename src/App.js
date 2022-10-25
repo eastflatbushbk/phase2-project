@@ -38,18 +38,19 @@ function App() {
       setTrashTasks(updatedTrashTask)
     }
 
-    function handleSetTrue (modifiedTask){
+    function handleUpdateState (modifiedTask){
        console.log(modifiedTask)
-     // const  updatedtasks= Object.assign(tasks,modifiedTask) 
-      const copyOfTasks = [...tasks]
-const taskToUpdate = copyOfTasks.find(task => task.id === modifiedTask.id)
-console.log(taskToUpdate)
-const idx = copyOfTasks.indexOf(taskToUpdate)
-console.log(idx)
-copyOfTasks.splice(idx, 1, modifiedTask)
-console.log(copyOfTasks)       
-     
-      
+       const copyOfTasks = [...tasks]
+       
+    const taskToUpdate = copyOfTasks.find(task => task.id === modifiedTask.id)
+    console.log(taskToUpdate)
+
+    const idx = copyOfTasks.indexOf(taskToUpdate)
+    console.log(idx)
+
+    copyOfTasks.splice(idx, 1, modifiedTask)
+    console.log(copyOfTasks)       
+           
       setTasks(copyOfTasks)
     }
 
@@ -67,7 +68,7 @@ console.log(copyOfTasks)
             </Route>
            <Route exact path="/done">
              <DoneTasks tasks={trashTasks} onRemoveTask={handleDelete} 
-             onSetTrue={handleSetTrue}/>
+             onSetTrue={handleUpdateState}/>
             </Route>
          </Switch>
       </div>
