@@ -1,49 +1,82 @@
 {
   "tasks": [
-      {
-          "id": 1,
-          "task": "finish opened wine bottle",
-          "marked": "URGENT!!"
-      },
-      {
-          "id": 2,
-          "task": "make doctor appointment",
-          "marked": "least important"
-      },
-      {
-          "id": 3,
-          "task": "pay bills",
-          "marked": "IMPORTANT"
-       },
-      {
-          "id": 4,
-          "task": "wash car",
-          "marked": "IMPORTANT"
-       },
-      {
-          "id": 5,
-          "task": "shovel snow",
-          "marked": "least important"
+    {
+      "id": 1,
+      "task": "finish opened wine bottle",
+      "marked": "URGENT!!",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "task": "make doctor appointment",
+      "marked": "least important",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "task": "pay bills",
+      "marked": "IMPORTANT",
+      "complete": false
+    },
+    {
+      "id": 4,
+      "task": "wash car",
+      "marked": "IMPORTANT",
+      "complete": false
+    },
+    {
+      "id": 5,
+      "task": "shovel snow",
+      "marked": "least important",
+      "complete": false
     },
     {
       "id": 6,
       "task": "return mother in law's phone call",
-      "marked": "least important"
+      "marked": "least important",
+      "complete": false
     },
     {
       "id": 7,
       "task": "paint garage",
-      "marked": "least important"
+      "marked": "least important",
+      "complete": false
     },
     {
       "task": "Like girlfriend's new pics on IG",
       "marked": "URGENT!!",
+      "complete": false,
       "id": 8
     },
     {
       "task": "drink water",
       "marked": "IMPORTANT",
+      "complete": false,
       "id": 9
+    },
+    {
+      "task": "do laundry",
+      "marked": "IMPORTANT",
+      "complete": false,
+      "id": 10
+    },
+    {
+      "task": "water plants",
+      "marked": "",
+      "complete": false,
+      "id": 11
+    },
+    {
+      "task": "grocery shopping",
+      "marked": "URGENT!!",
+      "complete": true,
+      "id": 12
+    },
+    {
+      "task": "watch new marvel movie trailer",
+      "marked": "URGENT!!",
+      "complete": false,
+      "id": 13
     }
   ]
 }

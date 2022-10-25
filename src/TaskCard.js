@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Button, Card } from "semantic-ui-react";
 
-function TaskCard ({tasks, onTaskClick}){
-    const [complete , setComplete] = useState(true)
+function TaskCard ({tasks, onTaskClick , onCompleteClick }){
+    const [completeFalse , setCompleteFalse] = useState(tasks.complete)
+    const [button , setButton] = useState(true)
 
     function handleClick(){
         fetch(`http://localhost:3000/tasks/${tasks.id}`,{
@@ -10,22 +12,69 @@ function TaskCard ({tasks, onTaskClick}){
          .then((resp) => resp.json())
          .then(()=> onTaskClick(tasks))
      }
-
+    //  function handleSetTrue (){
+    //   setButton(true)
+    //   handlePatch
+    // }
+    //  function handleSetFalse (){
+    //   setButton(false)
+    //    patchData
+    // }
     function handleBtn (){
-        setComplete((complete)=>!complete)
+           //  setShowComplete((showComplete)=>!showComplete)
+        console.log(button)
+        fetch(`http://localhost:3000/tasks/${tasks.id}`, {
+  method: 'PATCH',
+  body: JSON.stringify({
+    complete: button,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((modifiedTask)=> onCompleteClick(modifiedTask)) 
+      }
+
+      function setTrue (){
+        setButton(true)
+        setCompleteFalse(button)
+        console.log(button)
+        handleBtn()
+      }
+      function setFalse (){
+        setButton(false)
+        setCompleteFalse(button)
+        console.log(button)
+        handleBtn()
       }
 
     return(
-        <li className="card">
-       <h4>{tasks.marked}</h4>
-        <p>{tasks.task}</p>
-        <div>
-         <button className="primary" onClick={handleBtn}>{complete ? "Click when complete":"completed"}</button>
-        <div>
-       <button onClick={handleClick}>X</button>
-       </div>
-      </div>
-    </li>
+      
+        <Card>
+        <Card.Content>
+          
+          <Card.Header>{tasks.marked}</Card.Header>
+          
+          <Card.Description>
+            {tasks.task}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <div className='ui two buttons'>
+  { completeFalse ? (
+            <Button basic color='green'onClick={()=>{setFalse() }}>
+            completed
+            </Button> ) : ( <Button basic color='green'onClick={()=>{setTrue()}}>
+            click to complete
+            </Button> ) }
+            <Button basic color='red'onClick={handleClick}>
+              X
+            </Button>
+          </div>
+        </Card.Content>
+      </Card>
+      
     )
 }
 

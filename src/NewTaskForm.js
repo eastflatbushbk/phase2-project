@@ -2,7 +2,8 @@ import { useState } from "react"
 
 const defaultData = {
     task: "",
-    marked: "",
+    marked: "Least important",
+    complete: false
     }
 
 function NewTaskForm ({onAddTask}){
@@ -18,9 +19,10 @@ function NewTaskForm ({onAddTask}){
             event.preventDefault()
             const createTask = {
              task: formData.task,
-             marked: formData.marked
+             marked: formData.marked,
+             complete: formData.complete
             }
-            fetch("http://localhost:4001/tasks",{
+            fetch("http://localhost:3000/tasks",{
              method:"POST",
              headers:{
                "Content-Type" : "application/json",
@@ -33,7 +35,7 @@ function NewTaskForm ({onAddTask}){
             setFormData(defaultData)
      }
     return(
-        <div className="new-plant-form">
+        <div className="new-task-form">
         <h2>New Task</h2>
         <form onSubmit={handleSubmit}>
           <input type="text" name="task" placeholder="Task ..." onChange={handleChange} value={formData.task}/>

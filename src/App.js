@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Switch , Route} from "react-router-dom";
-import Header from './Header';
+import Headers from './Header';
 import NavBar from './NavBar';
 import TaskPage from './TaskPage';
 import NewTaskForm from './NewTaskForm';
@@ -8,6 +8,7 @@ import DoneTasks from './DoneTasks';
 
 function App() {
    const [tasks , setTasks] = useState([])
+   
    const [trashTasks , setTrashTasks] = useState([])
 
    useEffect(()=>{
@@ -25,28 +26,41 @@ function App() {
     );
     if (!taskToBeTrashed) {setTrashTasks([...trashTasks, taskToMove])}
     console.log("line 34", trashTasks)
+    const updatedDisplay = tasks.filter((item) => item.id !== taskToMove.id)
+      setTasks(updatedDisplay)
 
     }
     function handleDelete(deletedTask){
       const updatedDisplay = tasks.filter((item) => item.id !== deletedTask.id)
       setTasks(updatedDisplay)
+      
       const updatedTrashTask = trashTasks.filter((item)=> item.id !== deletedTask.id)
       setTrashTasks(updatedTrashTask)
     }
 
+    function handleSetTrue (modifiedTask){
+       console.log(modifiedTask)
+      const  updatedtasks= Object.assign(tasks,modifiedTask)        
+     
+      console.log(updatedtasks)
+      setTasks(updatedtasks)
+    }
+
   return (
     <div >
-      <Header />
+      <Headers />
         <NavBar />
          <Switch>
            <Route exact path="/">
-             <TaskPage tasks={tasks} onMoveTask={handleMovetask}/>
+             <TaskPage tasks={tasks} onMoveTask={handleMovetask}
+             onSetTrue={handleSetTrue}/>
             </Route>
            <Route exact path="/add">
              <NewTaskForm onAddTask={handleAddtask}/>
             </Route>
            <Route exact path="/done">
-             <DoneTasks tasks={trashTasks} onRemoveTask={handleDelete}/>
+             <DoneTasks tasks={trashTasks} onRemoveTask={handleDelete} 
+             onSetTrue={handleSetTrue}/>
             </Route>
          </Switch>
       </div>

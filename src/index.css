@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.new-task-form {
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+  background-color: rgba(15, 55, 55, 0.5);
+}
+.new-task-form input {
+  margin-right: 1rem;
+  flex: 1;
+}
+.new-task-form form {
+  display: flex;
+  justify-content: center;
+}
+.new-task-form button {
+  width: 150px;
+}
