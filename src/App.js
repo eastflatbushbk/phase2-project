@@ -40,10 +40,17 @@ function App() {
 
     function handleSetTrue (modifiedTask){
        console.log(modifiedTask)
-      const  updatedtasks= Object.assign(tasks,modifiedTask)        
+     // const  updatedtasks= Object.assign(tasks,modifiedTask) 
+      const copyOfTasks = [...tasks]
+const taskToUpdate = copyOfTasks.find(task => task.id === modifiedTask.id)
+console.log(taskToUpdate)
+const idx = copyOfTasks.indexOf(taskToUpdate)
+console.log(idx)
+copyOfTasks.splice(idx, 1, modifiedTask)
+console.log(copyOfTasks)       
      
-      console.log(updatedtasks)
-      setTasks(updatedtasks)
+      
+      setTasks(copyOfTasks)
     }
 
   return (

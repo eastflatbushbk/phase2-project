@@ -43,7 +43,7 @@ function TaskCard ({tasks, onTaskClick , onCompleteClick }){
       }
 
     return(
-      <Grid columns={4} divided>
+      <Grid columns={3} divided>
          <Grid.Row>
         <Card>
         <Card.Content>
