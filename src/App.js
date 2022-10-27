@@ -38,10 +38,10 @@ function App() {
       setTrashTasks(updatedTrashTask)
     }
 
-    function handleUpdateState (modifiedTask){
+    function handleUpdateTasks (modifiedTask){
        console.log(modifiedTask)
        const copyOfTasks = [...tasks]
-       
+
     const taskToUpdate = copyOfTasks.find(task => task.id === modifiedTask.id)
     console.log(taskToUpdate)
 
@@ -61,14 +61,14 @@ function App() {
          <Switch>
            <Route exact path="/">
              <TaskPage tasks={tasks} onMoveTask={handleMovetask}
-             onSetTrue={handleSetTrue}/>
+             onSetTrue={handleUpdateTasks}/>
             </Route>
            <Route exact path="/add">
              <NewTaskForm onAddTask={handleAddtask}/>
             </Route>
            <Route exact path="/done">
              <DoneTasks tasks={trashTasks} onRemoveTask={handleDelete} 
-             onSetTrue={handleUpdateState}/>
+             onSetTrue={handleUpdateTasks}/>
             </Route>
          </Switch>
       </div>

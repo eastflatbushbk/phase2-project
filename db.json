@@ -71,12 +71,6 @@
       "marked": "URGENT!!",
       "complete": false,
       "id": 13
-    },
-    {
-      "task": "water plants",
-      "marked": "least important",
-      "complete": false,
-      "id": 14
     }
   ]
 }
